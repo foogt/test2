@@ -20,9 +20,8 @@ int MyBase::Count = 0;
     // However swig would cast a new base shared_ptr but forgot to delete the object in (SwigPyObj*)self->ptr.
     // note: If no implicit cast between different type of shared_ptr, (shared_ptr<T>*)smartgarg1 would 
     //       point to (SwigPyObj*)self->ptr. And the object will be deleted correctly.
-    std::cout << "Unref from base\n";
-    delete smartarg1;
-    /*
+    //std::cout << "Unref from base\n";
+    //delete smartarg1;
     if (smartarg1)
     {
         delete smartarg1;
@@ -37,7 +36,6 @@ int MyBase::Count = 0;
             delete reinterpret_cast<std::shared_ptr<MyBase>*>(sobj->ptr);
         }
     }
-    */
 %}
 
 %include base.h
